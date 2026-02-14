@@ -6,36 +6,23 @@ public class EjercicioArrays {
     public static void main(String[] args) {
         //vector con las notas generadas
         Integer[] control = generarNotas();
+        //Obtenemos la mayor y menor nota
+        int maxNota = buscarMayorNota(control);
+        int minNota = buscarMenorNota(control);
+        
+        
+        
 		int[] listaClase;
 		int[] practicas;
 		float[] calificaciones;
 		float[] estadistica;
 		int[] aprobados;
 		int[] suspensos;
-        int maxNota = 0;
-        int minNota = 0;
         int indMaxNota, indMinNota;
-        int postEval;
 		double[] calif;
        
-        //buscamos al mayor
-        postEval = 11;
-        for(int i=0; i<control.length; i++){
-            int preEval = control[i];
-            if (preEval < postEval){
-                minNota = preEval;
-                postEval = control[i];
-            }
-        }
-        //buscamos al menor
-        postEval = 0;
-        for(int i=0; i<control.length; i++){
-            int preEval = control[i];
-            if (preEval > postEval){
-                maxNota = preEval;
-                postEval = control[i];
-            }
-        }
+      
+       
         //creamos una lista de los alumnos de la clase
         listaClase = new int[numAlumnos];
         for (int i = 0; i < numAlumnos; i++){
@@ -157,4 +144,29 @@ public class EjercicioArrays {
         }
         return control;
     }
+    
+    public static int buscarMayorNota(Integer[] control) {
+        int maxNota = -1;
+        for(int i=0; i<control.length; i++){
+            if (control[i] > maxNota){
+                maxNota = control[i];
+            }
+        }
+        return maxNota;
+    }
+    
+    public static int buscarMenorNota(Integer[] control) {
+        int minNota = 11;
+        for(int i=0; i<control.length; i++){
+            if (control[i] < minNota){
+                minNota = control[i];
+            }
+        }
+        return minNota;
+    }
+    
+    
+    
+    
+    
 }
