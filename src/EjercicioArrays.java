@@ -13,9 +13,6 @@ public class EjercicioArrays {
 		int[] listaClase = generarListaClase();
 		
 	
-	
-		int[] aprobados;
-		int[] suspensos;
 		double[] calif;
        
       
@@ -56,23 +53,16 @@ public class EjercicioArrays {
         
         
         //Aprobados y suspensos
-        aprobados = new int[NUM_ALUMNOS];
-        suspensos = new int[NUM_ALUMNOS];
-        int countAprobados = 0;
-        int countSuspensos = 0;
-        for (int i=0; i<NUM_ALUMNOS; i++){
-            if (calificaciones[i] < 5){
-                aprobados[i] = i;
-                countAprobados += 1;
-            }else{ 
-                suspensos[i] = i;
-                countSuspensos += 1;
-            }
-        }        
+        int[] aprobados = obtenerAprobados(calificaciones);
+        int[] suspensos = obtenerSuspensos(calificaciones);      
+        
         System.out.println("Relación de aprobados por nº de lista: " 
                 + Arrays.toString(aprobados));
         System.out.println("Relación de suspensos por nº de lista: " 
                 + Arrays.toString(suspensos));
+        
+        
+        
         //Resumen de aprobados y suspensos
         int i = 0;
         int x = 0;
@@ -115,7 +105,39 @@ public class EjercicioArrays {
     
     
     
+    public static int[] obtenerAprobados(float[] calificaciones) {
+    	int[] comprobaciones = new int[NUM_ALUMNOS];
+    	int countAprobados = 0;
+        for (int i=0; i<NUM_ALUMNOS; i++){
+            if (calificaciones[i] >= 5){
+            	comprobaciones[countAprobados] = i;
+                countAprobados += 1;
+            }
+        }   
+        int[] aprobados = new int[countAprobados];
+        for(int i  = 0; i < countAprobados;i++) {
+        	aprobados[i] = comprobaciones[i];
+        }
+        
+        return aprobados;
+    }
     
+    public static int[] obtenerSuspensos(float[] calificaciones) {
+        int[] comprobaciones = new int[NUM_ALUMNOS];
+        int countSuspensos = 0;
+        for (int i=0; i<NUM_ALUMNOS; i++){
+            if (calificaciones[i] < 5){
+            	comprobaciones[countSuspensos] = i;
+                 countSuspensos += 1;
+            }
+        }
+        int[] suspensos = new int[countSuspensos];
+        for(int i  = 0; i < countSuspensos;i++) {
+        	suspensos[i] = comprobaciones[i];
+        }
+        
+        return suspensos;
+    }
     
     public static Integer[] generarNotas() {
     	Integer[] control = new Integer[NUM_ALUMNOS]; 
