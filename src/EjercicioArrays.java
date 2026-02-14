@@ -53,42 +53,20 @@ public class EjercicioArrays {
         
         
         //Aprobados y suspensos
-        int[] aprobados = obtenerAprobados(calificaciones);
-        int[] suspensos = obtenerSuspensos(calificaciones);      
+        int[] aprobadosCompleto = obtenerAprobados(calificaciones);
+        int[] suspensosCompleto = obtenerSuspensos(calificaciones);      
         
-        System.out.println("Relación de aprobados por nº de lista: " 
+        System.out.println("Resumen  de aprobados por nº de lista: " 
                 + Arrays.toString(aprobados));
-        System.out.println("Relación de suspensos por nº de lista: " 
+        System.out.println("Resumen  de aprobados por nº de lista: " 
                 + Arrays.toString(suspensos));
-        
-        
-        
-        //Resumen de aprobados y suspensos
-        int i = 0;
-        int x = 0;
-        int[] a = new int[countAprobados];
-        int[] s = new int[countSuspensos];
-        while(i < aprobados.length){
-            if(aprobados[i] != 0){
-                a[x] = aprobados[i];
-                i++;
-                x++;
-            }else{ i++; }
-        }
-        
-        i = x = 0;
-        while(i < suspensos.length){
-            if(suspensos[i] != 0){
-                s[x] = suspensos[i];
-                i++;
-                x++;
-            }else{ i++; }
-        }
-        System.out.println("Resumen  de aprobados por nº de lista: " 
-                + Arrays.toString(a));
-        System.out.println("Resumen  de aprobados por nº de lista: " 
-                + Arrays.toString(s));
     
+        
+        
+     
+        
+        
+        
         /*6. Suponer un vector de Calificaciones de tamaño 40 
         (máximo de alumnos por clase), pero que solo almacena las
         notas de 31 alumnos. Realizar un programa que permita insertar en
@@ -103,37 +81,29 @@ public class EjercicioArrays {
         System.out.println("Nota nueva   alumno nº4: " + calif[3]);
     }
     
-    
+ 
     
     public static int[] obtenerAprobados(float[] calificaciones) {
-    	int[] comprobaciones = new int[NUM_ALUMNOS];
+    	int[] aprobados = new int[NUM_ALUMNOS];
     	int countAprobados = 0;
         for (int i=0; i<NUM_ALUMNOS; i++){
             if (calificaciones[i] >= 5){
-            	comprobaciones[countAprobados] = i;
+            	aprobados[countAprobados] = i;
                 countAprobados += 1;
             }
         }   
-        int[] aprobados = new int[countAprobados];
-        for(int i  = 0; i < countAprobados;i++) {
-        	aprobados[i] = comprobaciones[i];
-        }
         
         return aprobados;
     }
     
     public static int[] obtenerSuspensos(float[] calificaciones) {
-        int[] comprobaciones = new int[NUM_ALUMNOS];
+        int[] suspensos = new int[NUM_ALUMNOS];
         int countSuspensos = 0;
         for (int i=0; i<NUM_ALUMNOS; i++){
             if (calificaciones[i] < 5){
-            	comprobaciones[countSuspensos] = i;
+            	suspensos[countSuspensos] = i;
                  countSuspensos += 1;
             }
-        }
-        int[] suspensos = new int[countSuspensos];
-        for(int i  = 0; i < countSuspensos;i++) {
-        	suspensos[i] = comprobaciones[i];
         }
         
         return suspensos;
