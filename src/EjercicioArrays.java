@@ -2,11 +2,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EjercicioArrays {
-    
+    public static int NUM_ALUMNOS = 40;
     public static void main(String[] args) {
-        int numAlumnos = 40;
         //vector con las notas generadas
-        Integer[] control = new Integer[numAlumnos];
+        Integer[] control = generarNotas();
 		int[] listaClase;
 		int[] practicas;
 		float[] calificaciones;
@@ -18,10 +17,7 @@ public class EjercicioArrays {
         int indMaxNota, indMinNota;
         int postEval;
 		double[] calif;
-        //Genera notas random entre 1 y 10
-        for(int i=0; i < control.length; i++){
-            control[i] = (int)(Math.random()*11);
-        }
+       
         //buscamos al mayor
         postEval = 11;
         for(int i=0; i<control.length; i++){
@@ -151,5 +147,14 @@ public class EjercicioArrays {
         System.out.println("Nota antigua alumno nº4: " + calif[3]); 
         calif[3] = 6;
         System.out.println("Nota nueva   alumno nº4: " + calif[3]);
+    }
+    
+    public static Integer[] generarNotas() {
+    	Integer[] control = new Integer[NUM_ALUMNOS]; 
+    	//Genera notas random entre 1 y 10
+        for(int i=0; i < control.length; i++){
+            control[i] = (int)(Math.random()*11);
+        }
+        return control;
     }
 }
