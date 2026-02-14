@@ -14,7 +14,6 @@ public class EjercicioArrays {
 		
 	
 	
-		float[] estadistica;
 		int[] aprobados;
 		int[] suspensos;
 		double[] calif;
@@ -50,27 +49,12 @@ public class EjercicioArrays {
         
         
         
-        //Sacamos la estadística de calificaciones
-        //hacemos un array de 10 para la estadística.
-        estadistica = new float[10];
-      
-        for (int i=0; i<10; i++){
-            float count = 0;
-            float sum = 0;
-            for (int j=0; j<control.length; j++){
-                if ((i < calificaciones[j]) && ((i+1) >= calificaciones[j] )) {
-                    sum += calificaciones[j];
-                    count += 1;
-                }
-            }
-            if (count != 0){
-                estadistica[i] = ( (float)count / NUM_ALUMNOS);
-            }else{ estadistica[i] = 0;}
-            double sol = (Math.round(estadistica[i] * 10000.0)) / 100.0;
-            System.out.println("Estadística nota tramo <=" 
-                + (i+1) + " = " 
-                + sol + "%");
-        }
+        obtenerEstadisticas(control, calificaciones);
+        
+        
+        
+        
+        
         //Aprobados y suspensos
         aprobados = new int[NUM_ALUMNOS];
         suspensos = new int[NUM_ALUMNOS];
@@ -189,5 +173,30 @@ public class EjercicioArrays {
         }
         return calificaciones;
     }
+    
+    
+    public static void obtenerEstadisticas(Integer[] control,float[] calificaciones ) {
+    	//Sacamos la estadística de calificaciones
+        //hacemos un array de 10 para la estadística.
+        float[] estadistica = new float[10];
+      
+        for (int i=0; i<estadistica.length; i++){
+            float count = 0;
+            for (int j=0; j<control.length; j++){
+                if ((i < calificaciones[j]) && ((i+1) >= calificaciones[j] )) {
+                    count += 1;
+                }
+            }
+            if (count != 0){
+                estadistica[i] = ( (float)count / NUM_ALUMNOS);
+            }else{ estadistica[i] = 0;}
+            double sol = (Math.round(estadistica[i] * 10000.0)) / 100.0;
+            System.out.println("Estadística nota tramo <=" 
+                + (i+1) + " = " 
+                + sol + "%");
+        }
+    }
+    
+    
      
 }
