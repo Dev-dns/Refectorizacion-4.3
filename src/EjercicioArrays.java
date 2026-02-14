@@ -99,26 +99,35 @@ public class EjercicioArrays {
     }
     
     public static int[] obtenerAprobados(float[] calificaciones) {
-    	int[] aprobados = new int[NUM_ALUMNOS];
+    	int[] comprobacion = new int[NUM_ALUMNOS];
     	int countAprobados = 0;
         for (int i=0; i<NUM_ALUMNOS; i++){
             if (calificaciones[i] >= 5){
-            	aprobados[countAprobados] = i;
+            	comprobacion[countAprobados] = i;
                 countAprobados += 1;
             }
         }   
+        int[] aprobados = new int[countAprobados];
+        for(int i = 0; i < countAprobados;i++) {
+        	aprobados[i] = comprobacion[i];
+        }
         
         return aprobados;
     }
     
     public static int[] obtenerSuspensos(float[] calificaciones) {
-        int[] suspensos = new int[NUM_ALUMNOS];
+        int[] comprobacion = new int[NUM_ALUMNOS];
         int countSuspensos = 0;
         for (int i=0; i<NUM_ALUMNOS; i++){
             if (calificaciones[i] < 5){
-            	suspensos[countSuspensos] = i;
+            	comprobacion[countSuspensos] = i;
                  countSuspensos += 1;
             }
+        }
+        
+        int[] suspensos = new int[countSuspensos];
+        for(int i = 0; i < countSuspensos;i++) {
+        	suspensos[i] = comprobacion[i];
         }
         
         return suspensos;
