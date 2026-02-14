@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,8 +13,6 @@ public class EjercicioArrays {
         
 		int[] listaClase = generarListaClase();
 		
-	
-		double[] calif;
        
       
         //Empezamos el uso de listas para facilitar la tarea de índices.
@@ -53,8 +52,8 @@ public class EjercicioArrays {
         
         
         //Aprobados y suspensos
-        int[] aprobadosCompleto = obtenerAprobados(calificaciones);
-        int[] suspensosCompleto = obtenerSuspensos(calificaciones);      
+        int[] aprobados = obtenerAprobados(calificaciones);
+        int[] suspensos = obtenerSuspensos(calificaciones);      
         
         System.out.println("Resumen  de aprobados por nº de lista: " 
                 + Arrays.toString(aprobados));
@@ -72,16 +71,32 @@ public class EjercicioArrays {
         notas de 31 alumnos. Realizar un programa que permita insertar en
         la posición 4 del vector la calificación de un nuevo 
         alumno en clase al que supuestamente le corresponde como nota un 6.*/
-        calif = new double[40];
-        for (int j=0; j<31; j++){
-            calif[j] = (int)(Math.random()*11);
-        }
+        double[] calif = generarCalificaciones();
         System.out.println("Nota antigua alumno nº4: " + calif[3]); 
-        calif[3] = 6;
+        calif = insertarNuevoAlumno(calif);
         System.out.println("Nota nueva   alumno nº4: " + calif[3]);
     }
     
- 
+    public static double[] insertarNuevoAlumno(double[] calif) {
+    	ArrayList<Double> califs = new ArrayList<Double>();
+    	
+    	for(int i = 0;i < 31;i++) {
+    		califs.add(calif[i]);
+    	}
+    	califs.add(3,6.0);
+    	for(int i = 0;i < califs.size();i++) {
+    		calif[i] = califs.get(i);
+    	}
+    	return calif;
+    }
+    
+    public static double[] generarCalificaciones() {
+    	 double[] calif = new double[40];
+         for (int j=0; j<31; j++){
+             calif[j] = (int)(Math.random()*11);
+         }
+         return calif;
+    }
     
     public static int[] obtenerAprobados(float[] calificaciones) {
     	int[] aprobados = new int[NUM_ALUMNOS];
