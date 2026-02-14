@@ -10,9 +10,12 @@ public class EjercicioArrays {
         int maxNota = buscarMayorNota(control);
         int minNota = buscarMenorNota(control);
         
-        
-        
-		int[] listaClase;
+		int[] listaClase = generarListaClase();
+		
+		
+		
+		
+		
 		int[] practicas;
 		float[] calificaciones;
 		float[] estadistica;
@@ -23,11 +26,7 @@ public class EjercicioArrays {
        
       
        
-        //creamos una lista de los alumnos de la clase
-        listaClase = new int[numAlumnos];
-        for (int i = 0; i < numAlumnos; i++){
-            listaClase[i] = i+1;
-        }
+       
         //Empezamos el uso de listas para facilitar la tarea de índices.
         List notas = Arrays.asList(control);
         indMinNota = notas.indexOf(minNota) + 1;
@@ -163,6 +162,15 @@ public class EjercicioArrays {
             }
         }
         return minNota;
+    }
+    
+    public static int[] generarListaClase() {
+    	//creamos una lista de los alumnos de la clase
+       int [] listaClase = new int[NUM_ALUMNOS];
+        for (int i = 0; i < NUM_ALUMNOS; i++){
+            listaClase[i] = i+1;
+        }
+        return listaClase;
     }
     
     
