@@ -21,7 +21,6 @@ public class EjercicioArrays {
 		float[] estadistica;
 		int[] aprobados;
 		int[] suspensos;
-        int indMaxNota, indMinNota;
 		double[] calif;
        
       
@@ -29,8 +28,8 @@ public class EjercicioArrays {
        
         //Empezamos el uso de listas para facilitar la tarea de índices.
         List notas = Arrays.asList(control);
-        indMinNota = notas.indexOf(minNota) + 1;
-        indMaxNota = notas.indexOf(maxNota) + 1;
+        int indMinNota = notas.indexOf(minNota) + 1;
+        int indMaxNota = notas.indexOf(maxNota) + 1;
 
         //Comprobamos el resultado del ejercicio   
         System.out.println("Mínimo es: " + minNota);
