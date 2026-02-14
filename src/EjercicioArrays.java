@@ -14,7 +14,6 @@ public class EjercicioArrays {
 		
 	
 	
-		float[] calificaciones;
 		float[] estadistica;
 		int[] aprobados;
 		int[] suspensos;
@@ -45,15 +44,11 @@ public class EjercicioArrays {
         
         
         //Creamos el vector calificaciones
-        calificaciones = new float[NUM_ALUMNOS];
-        for(int i = 0; i<control.length; i++){
-            calificaciones[i] = 
-                    (((float) control[i] 
-                    + (float) practicas[i]) 
-                    / 2);
-        }
+        float[] calificaciones = generarVectorCalificaciones(control, practicas); 		
         System.out.println("Prácticas      :" + Arrays.toString(practicas));
         System.out.println("Calificaciones :" + Arrays.toString(calificaciones));
+        
+        
         
         //Sacamos la estadística de calificaciones
         //hacemos un array de 10 para la estadística.
@@ -184,6 +179,15 @@ public class EjercicioArrays {
         return practicas;
     }
     
-    
-    
+    public static float[] generarVectorCalificaciones(Integer[] control,int[] practicas) {
+    	float[] calificaciones = new float[NUM_ALUMNOS];
+        for(int i = 0; i<control.length; i++){
+            calificaciones[i] = 
+                    (((float) control[i] 
+                    + (float) practicas[i]) 
+                    / 2);
+        }
+        return calificaciones;
+    }
+     
 }
